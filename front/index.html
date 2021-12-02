@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/global.css">
+
+    <title>sit-almeida</title>
 </head>
+
 <body>
-    
-    
+
+    <header class="h">
+        <form action="" class="h_form">
+            <section class="h_form_filters">
+
+                <div class="h_form_filters_cont h_form_filters_cont--name">
+                    <label for="ipt-name" class="h_form_filters_cont_label">
+                        <p class="h_form_filters_cont_label_text">Nome</p>
+                        <input type="text" id="ipt-name" class="h_form_filters_cont_label_ipt">
+                    </label>
+                </div>
+
+                <div class="h_form_filters_cont h_form_filters_cont--phone">
+                    <label for="ipt-phone" class="h_form_filters_cont_label">
+                        <p class="h_form_filters_cont_label_text">Tel</p>
+                        <input type="text" id="ipt-phone" class="h_form_filters_cont_label_ipt">
+                    </label>
+                </div>
+
+                <div class="h_form_filters_cont h_form_filters_cont--description">
+                    <label for="ipt-description" class="h_form_filters_cont_label">
+                        <p class="h_form_filters_cont_label_text">Des</p>
+                        <textarea id="ipt-description" class="h_form_filters_cont_label_ipt"></textarea>
+                    </label>
+                </div>
+
+                <div class="h_form_filters_cont h_form_filters_cont--price">
+                    <label for="ipt-price" class="h_form_filters_cont_label">
+                        <p class="h_form_filters_cont_label_text">R$</p>
+                        <input type="number" step="any" id="ipt-price" class="h_form_filters_cont_label_ipt">
+                    </label>
+                </div>
+
+                <div class="h_form_filters_cont h_form_filters_cont--payment">
+                    <label for="ipt-payment" class="h_form_filters_cont_label">
+                        <p class="h_form_filters_cont_label_text">PAG</p>
+                        <input type="text" id="ipt-payment" class="h_form_filters_cont_label_ipt">
+                    </label>
+                </div>
+            </section>
+
+            <section class="h_form_controls">
+                <button class="h_form_controls_button h_form_controls_button--clear">limpar</button>
+                <button class="h_form_controls_button h_form_controls_button--reset">inicio</button>
+                <button class="h_form_controls_button h_form_controls_button--search">procurar</button>
+            </section>
+        </form>
+    </header>
 
 </body>
+
 </html>
