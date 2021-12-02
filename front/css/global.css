@@ -8,6 +8,8 @@
 }
 
 .h {
+    display: flex;
+    justify-content: center;
     background-color: rgb(46, 179, 46);
     height: 5rem;
     position: absolute;
@@ -18,7 +20,7 @@
 
 .h_form {
     display: grid;
-    column-gap: 5px;
+    column-gap: 10px;
     height: 100%;
     grid-template-columns: 1fr 12rem;
 }
@@ -74,6 +76,7 @@
 }
 
 .h_form_filters_cont_label_ipt {
+    text-transform: uppercase;
     font-family: mono;
     margin-left: 5px;
     font-size: 1.2rem;
