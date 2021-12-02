@@ -55,6 +55,10 @@
     padding: 0 5px;
 }
 
+.m_table_orders_order:hover {
+    background-color: rgb(224, 224, 224);
+}
+
 .m_table_orders_order_field {
     display: flex;
     align-items: center;

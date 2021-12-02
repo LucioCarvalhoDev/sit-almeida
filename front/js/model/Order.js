@@ -1,13 +1,19 @@
 class Order {
-    constructor({ price, name, phone, description, payment, finished }) {
-        this.price = price;
-
+    constructor({ name, phone, date, description, price, payment, ok }) {
         this.name = name;
         this.phone = phone;
 
+        this.date = date;
         this.description = description;
+        this.price = price;
         this.payment = payment;
-        this.finished = finished;
+        this.ok = ok;
+
+        for (const prop in this) {
+            if (prop == 'ok') continue;
+            this[prop] = String(this[prop]).toUpperCase();
+        }
     }
+
 
 }

@@ -49,9 +49,9 @@
                 </div>
 
                 <div class="h_form_filters_cont h_form_filters_cont--payment">
-                    <label for="ipt-payment" class="h_form_filters_cont_label">
-                        <p class="h_form_filters_cont_label_text">PAG</p>
-                        <input type="text" id="ipt-payment" class="h_form_filters_cont_label_ipt">
+                    <label for="ipt-date" class="h_form_filters_cont_label">
+                        <p class="h_form_filters_cont_label_text">Data</p>
+                        <input type="date" id="ipt-date" class="h_form_filters_cont_label_ipt">
                     </label>
                 </div>
             </section>
@@ -59,7 +59,7 @@
             <section class="h_form_controls">
                 <button class="h_form_controls_button h_form_controls_button--clear">limpar</button>
                 <button class="h_form_controls_button h_form_controls_button--reset">inicio</button>
-                <button class="h_form_controls_button h_form_controls_button--search">procurar</button>
+                <button class="h_form_controls_button h_form_controls_button--search" id="btn-search">procurar</button>
             </section>
         </form>
     </header>
@@ -86,19 +86,16 @@
                     <input class="m_table_orders_order_field">
                     <input type="checkbox" class="m_table_orders_order_field">
                 </div>
-                <div class="m_table_orders_order">
-                    <input class="m_table_orders_order_field">
-                    <input class="m_table_orders_order_field">
-                    <input class="m_table_orders_order_field">
-                    <input type="date" class="m_table_orders_order_field">
-                    <input class="m_table_orders_order_field">
-                    <input class="m_table_orders_order_field">
-                    <input type="checkbox" class="m_table_orders_order_field">
-                </div>
+
             </div>
 
         </div>
     </main>
+
+    <script src="./js/model/Order.js"></script>
+    <script src="./js/view/TableView.js"></script>
+    <script src="./js/controller/Controller.js"></script>
+    <script src="./js/index.js"></script>
 
 </body>
 
