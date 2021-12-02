@@ -3,17 +3,16 @@ class TableView {
         this.target = target;
     }
 
-    templateLine({ name, phone, description, date, price, payment, ok }) {
-        const objDate = new Date(date);
+    templateLine(order) {
         return `
     <div class="m_table_orders_order">
-        <input class="m_table_orders_order_field" value="${name}">
-        <input class="m_table_orders_order_field" value="${phone}">
-        <input class="m_table_orders_order_field" value="${description}">
-        <input type="date" class="m_table_orders_order_field" value="${objDate.getFullYear()}-${objDate.getMonth() + 1}-${String(objDate.getDay()).padStart(2, '0')}">
-        <input class="m_table_orders_order_field" value="${price}">
-        <input class="m_table_orders_order_field"value="${payment}">
-        <input type="checkbox" class="m_table_orders_order_field" ${ok ? 'checked="checked"' : ''}>
+        <input class="m_table_orders_order_field" value="${order.name}">
+        <input class="m_table_orders_order_field" value="${order.phone}">
+        <input class="m_table_orders_order_field" value="${order.description}">
+        <input type="date" class="m_table_orders_order_field" value="${order.getFormatedDate()}">
+        <input class="m_table_orders_order_field" value="${order.price}">
+        <input class="m_table_orders_order_field"value="${order.payment}">
+        <input type="checkbox" class="m_table_orders_order_field" ${order.ok ? 'checked="checked"' : ''}>
     </div>`;
     }
 

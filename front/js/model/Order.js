@@ -15,5 +15,10 @@ class Order {
         }
     }
 
+    getFormatedDate() {
+        const objDate = new Date(+this.date);
+        return (`${objDate.getFullYear()}-${objDate.getMonth() + 1}-${String(objDate.getDay()).padStart(2, '0')}`);
+    }
+
 
 }

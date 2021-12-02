@@ -12,7 +12,7 @@ const testOrder2 = {
     name: 'CARLOS',
     phone: '1938',
     description: '1 AL',
-    date: '1638481100000',
+    date: '1638316800000',
     price: '8',
     payment: 'PG',
     ok: false

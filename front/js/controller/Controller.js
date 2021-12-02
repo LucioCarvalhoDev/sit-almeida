@@ -13,25 +13,25 @@ class Controller {
     }
 
     filter() {
-        const filter = {
+        const params = {
             name: document.getElementById('ipt-name').value,
             phone: document.getElementById('ipt-phone').value,
             description: document.getElementById('ipt-description').value,
             price: document.getElementById('ipt-price').value,
-            date: document.getElementById('ipt-date').value
+            date: document.getElementById('ipt-date').value,
         };
 
-        const filteredOrders = this.orders.filter(order => {
-            for (let prop in filter) {
-                if (!order[prop].includes(filter[prop].toUpperCase())) {
+        const objFilter = new Filter(params);
+
+        const res = this.orders.filter(order => {
+            for (const prop in objFilter) {
+                if (!order[prop].includes(objFilter[prop])) {
                     return false;
-                } else {
-                    break;
                 }
             }
             return true;
         });
 
-        this.tableView.updateView(filteredOrders);
+        console.log(res);
     }
 }
