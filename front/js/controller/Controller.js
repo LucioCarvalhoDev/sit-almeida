@@ -28,6 +28,9 @@ class Controller {
         });
 
         this.updateView(res);
+    }
+
+    sort() {
 
     }
 }
