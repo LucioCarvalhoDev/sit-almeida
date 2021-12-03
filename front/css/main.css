@@ -66,6 +66,7 @@
     border: none;
     font-family: mono;
     font-size: 1.1rem;
+    padding: 0px 5px;
 }
 
 .m_table_orders_order_field:focus {
