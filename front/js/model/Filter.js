@@ -6,4 +6,13 @@ class Filter {
         price ? this.price = price.toUpperCase() : '';
         date ? this.date = date.toUpperCase() : '';
     }
+
+    eval(order) {
+        for (const prop in this) {
+            if (!order[prop].includes(this[prop])) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

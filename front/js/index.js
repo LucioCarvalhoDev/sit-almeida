@@ -21,9 +21,12 @@ const testOrder2 = {
 const controller = new Controller(table);
 controller.createOrder(testOrder1);
 controller.createOrder(testOrder2);
-controller.updateView();
+controller.updateView(controller.orders);
 
-document.getElementById('btn-search').onclick = (e) => {
+function applyFilter(e) {
     e.preventDefault();
     controller.filter();
-};
+}
+
+document.querySelector('.h_form').onsubmit = applyFilter;
+document.getElementById('btn-search').onclick = applyFilter;

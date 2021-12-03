@@ -8,8 +8,8 @@ class Controller {
         this.orders.push(new Order(data));
     }
 
-    updateView() {
-        this.tableView.updateView(this.orders);
+    updateView(orders) {
+        this.tableView.updateView(orders);
     }
 
     filter() {
@@ -24,14 +24,10 @@ class Controller {
         const objFilter = new Filter(params);
 
         const res = this.orders.filter(order => {
-            for (const prop in objFilter) {
-                if (!order[prop].includes(objFilter[prop])) {
-                    return false;
-                }
-            }
-            return true;
+            return objFilter.eval(order);
         });
 
-        console.log(res);
+        this.updateView(res);
+
     }
 }
