@@ -10,7 +10,7 @@ class Filter {
     eval(order) {
         for (const prop in this) {
             if (prop == 'date') {
-                return new Date(order.getFormatedDate()) <= new Date(this[prop]);
+                return new Date(order.getFormatedDate()) >= new Date(this[prop]);
             }
             if (!order[prop].includes(this[prop])) {
                 return false;
