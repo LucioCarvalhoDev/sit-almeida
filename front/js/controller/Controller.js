@@ -2,6 +2,14 @@ class Controller {
     constructor(table) {
         this.tableView = new TableView(table);
         this.orders = [];
+
+        this.inputs = {
+            name: document.getElementById('ipt-name'),
+            phone: document.getElementById('ipt-phone'),
+            description: document.getElementById('ipt-description'),
+            price: document.getElementById('ipt-price'),
+            date: document.getElementById('ipt-date'),
+        };
     }
 
     createOrder(data) {
@@ -13,21 +21,27 @@ class Controller {
     }
 
     filter() {
-        const params = {
-            name: document.getElementById('ipt-name').value,
-            phone: document.getElementById('ipt-phone').value,
-            description: document.getElementById('ipt-description').value,
-            price: document.getElementById('ipt-price').value,
-            date: document.getElementById('ipt-date').value,
-        };
+        const params = {};
+
+        for (const input in this.inputs) {
+            params[input] = this.inputs[input].value.toUpperCase();
+        }
 
         const objFilter = new Filter(params);
+
+        console.log(objFilter);
 
         const res = this.orders.filter(order => {
             return objFilter.eval(order);
         });
 
         this.updateView(res);
+    }
+
+    clearInputs() {
+        for (const input in this.inputs) {
+            this.inputs[input].value = '';
+        }
     }
 
     sort() {

@@ -28,5 +28,12 @@ function applyFilter(e) {
     controller.filter();
 }
 
+function clearFilters(e) {
+    e.preventDefault();
+    controller.clearInputs();
+    controller.filter();
+}
+
 document.querySelector('.h_form').onsubmit = applyFilter;
 document.getElementById('btn-search').onclick = applyFilter;
+document.getElementById('btn-clear').onclick = clearFilters;
