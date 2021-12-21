@@ -42,6 +42,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 5px;
+    overflow: hidden;
 }
 
 .m_table_orders {
@@ -71,4 +72,18 @@
 
 .m_table_orders_order_field:focus {
     outline: none;
+}
+
+@media screen and (width < 780px) {
+
+    .m_table_columns_title--phone {
+        color:rgba(255, 255, 255, 0);
+        transition: color 700ms;
+    }
+
+    .m_table_columns_title--phone::before {
+        position: absolute;
+        color: var(--white);
+        content: 'Tel';
+    }
 }
