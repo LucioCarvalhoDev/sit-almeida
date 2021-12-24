@@ -3,7 +3,7 @@ const testOrder1 = {
     name: 'Julia Vigoline',
     phone: '99875678',
     description: '2 AL',
-    date: '1638480115543',
+    date: new Date().getTime() + '',
     price: '16',
     payment: 'AP 6',
     ok: false

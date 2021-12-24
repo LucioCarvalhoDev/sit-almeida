@@ -6,13 +6,26 @@ class TableView {
     templateLine(order) {
         return `
     <div class="m_table_orders_order">
-        <input class="m_table_orders_order_field" value="${order.name}">
-        <input class="m_table_orders_order_field" value="${order.phone}">
-        <input class="m_table_orders_order_field" value="${order.description}">
-        <input type="date" class="m_table_orders_order_field" value="${order.getFormatedDate()}">
-        <input class="m_table_orders_order_field" value="${order.price}">
-        <input class="m_table_orders_order_field"value="${order.payment}">
-        <input type="checkbox" class="m_table_orders_order_field" ${order.ok ? 'checked="checked"' : ''}>
+        <span class="m_table_orders_order_field">
+        ${order.name}
+        </span>
+        <span class="m_table_orders_order_field">
+        ${order.phone}
+        </span>
+        <span class="m_table_orders_order_field">
+        ${order.description}
+        </span>
+        <span type="date" class="m_table_orders_order_field">
+        ${order.getDateForView()}
+        </span>
+        <span class="m_table_orders_order_field">
+        ${order.price}
+        </span>
+        <span class="m_table_orders_order_field">
+        ${order.payment}
+        </span>
+        <input disabled type="checkbox" class="m_table_orders_order_field" ${order.ok ? 'checked="checked"' : ''}>
+        
     </div>`;
     }
 

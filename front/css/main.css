@@ -34,7 +34,7 @@
     display: grid;
     height: 2rem;
     grid-template-columns: 
-    .8fr .5fr 1fr 1fr .4fr .4fr 2.5rem;
+    .6fr .4fr 0.5fr 0.5fr .3fr .4fr 2.5rem;
 }
 
 .m_table_columns_title {
