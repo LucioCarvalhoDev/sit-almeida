@@ -1,5 +1,6 @@
 class Controller {
     constructor(table) {
+        this.dao = new Dao();
         this.tableView = new TableView(table);
         this.orders = [];
 
@@ -13,8 +14,21 @@ class Controller {
     }
 
     createOrder(data) {
-        this.orders.push(new Order(data));
+        const order = new Order(data);
+        this.orders.push(order);
+        this.dao.createOrder(order);
     }
+
+    getOrders() {
+        this.orders = [];
+        this.dao.getOrders()
+            .then(dataArr => {
+                dataArr.forEach(data => {
+                    this.orders.push(new Order(data));
+                })
+                this.updateView(this.orders);
+            });
+    } 
 
     updateView(orders) {
         this.tableView.updateView(orders);

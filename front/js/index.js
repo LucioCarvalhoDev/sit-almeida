@@ -3,7 +3,7 @@ const testOrder1 = {
     name: 'Julia Vigoline',
     phone: '99875678',
     description: '2 AL',
-    date: new Date().getTime() + '',
+    date: '1640355652982',
     price: '16',
     payment: 'AP 6',
     ok: false
@@ -19,9 +19,7 @@ const testOrder2 = {
 };
 
 const controller = new Controller(table);
-controller.createOrder(testOrder1);
-controller.createOrder(testOrder2);
-controller.updateView(controller.orders);
+
 
 function applyFilter(e) {
     e.preventDefault();
