@@ -11,7 +11,25 @@ class Controller {
             price: document.getElementById('ipt-price'),
             date: document.getElementById('ipt-date'),
         };
+
+        this.init();
     }
+
+    init() {
+        this.getOrders();
+    }
+
+    /*
+    exportData() {
+        const now = new Date();
+ 
+        const link = document.createElement('a');
+        link.href = 'data:application/json,' + encodeURIComponent(); // inserir aqui os dados
+        link.taget = '_blank';
+        link.download = `pedidos_${date.getDate()}-${date.getMonth() + 1}-${date.getUTCFullYear()}.json`;
+ 
+    } 
+    */
 
     createOrder(data) {
         const order = new Order(data);
@@ -25,10 +43,10 @@ class Controller {
             .then(dataArr => {
                 dataArr.forEach(data => {
                     this.orders.push(new Order(data));
-                })
+                });
                 this.updateView(this.orders);
             });
-    } 
+    }
 
     updateView(orders) {
         this.tableView.updateView(orders);
