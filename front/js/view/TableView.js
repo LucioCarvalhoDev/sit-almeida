@@ -1,4 +1,4 @@
-class TableView {
+export default class TableView {
     constructor(target) {
         this.target = target;
     }

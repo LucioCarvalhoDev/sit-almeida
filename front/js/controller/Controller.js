@@ -1,4 +1,11 @@
-class Controller {
+import Dao from "../dao/Dao.js";
+import Filter from "../model/Filter.js";
+import Order from "../model/Order.js";
+import TableView from "../view/TableView.js";
+
+
+
+export default class Controller {
     constructor(table) {
         this.dao = new Dao();
         this.tableView = new TableView(table);

@@ -1,4 +1,4 @@
-class Dao {
+export default class Dao {
     constructor() {
         this.db;
         this.init();
@@ -25,7 +25,7 @@ class Dao {
 
     createOrder(order) {
         this.db.orders.bulkPut([order])
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
     }
 
     getOrders() {
@@ -33,7 +33,7 @@ class Dao {
 
             this.db.table("orders")
                 .toArray()
-                .then(orders => resolve(orders))
-        })
+                .then(orders => resolve(orders));
+        });
     }
 }

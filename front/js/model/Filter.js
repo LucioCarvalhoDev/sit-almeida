@@ -1,4 +1,4 @@
-class Filter {
+export default class Filter {
     constructor({ name, phone, description, price, date }) {
         phone ? this.phone = phone.toUpperCase() : '';
         name ? this.name = name.toUpperCase() : '';
