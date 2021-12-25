@@ -17,3 +17,11 @@
     max-width: 1200px;
     width: 100%;
 }
+
+.icon {
+    height: 100%;
+}
+
+.--hidden {
+    visibility: hidden;
+}

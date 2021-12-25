@@ -82,6 +82,8 @@
 }
 
 .h_form_controls {
+    overflow: hidden;
+    max-height: 100%;
     display: grid;
     gap: 5px;
     grid-template-columns: 1fr 1fr;
@@ -94,6 +96,7 @@
 .h_form_controls_button {
     cursor: pointer;
     height: 100%;
+    overflow: hidden;
     border-radius: 0px;
     border: none;
 }
