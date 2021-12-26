@@ -1,4 +1,4 @@
-import { stringify } from "./../../node_modules/yaml/browser/index.js";
+import { stringify, parse } from "./../../node_modules/yaml/browser/index.js";
 import Dao from "../dao/Dao.js";
 import Filter from "../model/Filter.js";
 import Order from "../model/Order.js";
@@ -29,7 +29,6 @@ export default class Controller {
 
 
     exportData() {
-
         this.dao.getOrders()
             .then(dataArr => {
                 return dataArr.map(data => new Order(data));
@@ -44,9 +43,12 @@ export default class Controller {
                 link.download = `pedidos_${now.getDate()}-${now.getMonth() + 1}-${now.getUTCFullYear()}.yaml`;
 
                 link.click();
-
             });
+    }
 
+    importData(text) {
+        const orderArr = parse(text).map(data => new Order(data));
+        orderArr.forEach(order => this.createOrder(order));
 
     }
 

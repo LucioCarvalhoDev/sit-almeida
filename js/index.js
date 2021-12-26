@@ -53,5 +53,21 @@ document.getElementById('btn-clear').onclick = clearFilters;
 
 document.getElementById('btn-config').onclick = toggleModal;
 document.getElementById('btn-export').onclick = controller.exportData.bind(controller);
+document.getElementById('btn-import').onclick = (e) => {
+    e.preventDefault();
+    console.log('pah');
+    const elem = document.createElement('input');
+    elem.type = "file";
+    elem.accept = ".yaml";
+
+    elem.onchange = (event) => {
+        event.target.files[0]
+            .text()
+            .then(text => controller.importData(text));
+    };
+
+    elem.click();
+
+};
 
 document.getElementById('overlay').onclick = toggleModal;
