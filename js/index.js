@@ -65,9 +65,12 @@ document.getElementById('btn-import').onclick = (e) => {
             .text()
             .then(text => controller.importData(text));
     };
-
     elem.click();
+};
+document.getElementById('btn-clear-data').onclick = (e) => {
+    e.preventDefault();
 
+    controller.clearData();
 };
 
 document.getElementById('overlay').onclick = toggleModal;

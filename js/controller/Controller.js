@@ -38,7 +38,7 @@ export default class Controller {
                 const content = stringify(orderArr);
 
                 const link = document.createElement('a');
-                link.href = 'data:application/text,' + encodeURIComponent(content); // inserir aqui os dados
+                link.href = 'data:application/text,' + encodeURIComponent(content);
                 link.taget = '_blank';
                 link.download = `pedidos_${now.getDate()}-${now.getMonth() + 1}-${now.getUTCFullYear()}.yaml`;
 
@@ -48,10 +48,16 @@ export default class Controller {
 
     importData(text) {
         const orderArr = parse(text).map(data => new Order(data));
-        orderArr.forEach(order => this.createOrder(order));
-
+        this.dao.importOrders(orderArr)
+            .then(() => {
+                this.getOrders();
+            });
     }
 
+    clearData() {
+        this.dao.clearData();
+        this.getOrders();
+    }
 
     createOrder(data) {
         const order = new Order(data);
@@ -82,8 +88,6 @@ export default class Controller {
         }
 
         const objFilter = new Filter(params);
-
-        console.log(objFilter);
 
         const res = this.orders.filter(order => {
             return objFilter.eval(order);

@@ -24,8 +24,27 @@ export default class Dao {
     }
 
     createOrder(order) {
-        this.db.orders.bulkPut([order])
-            .catch(err => console.log(err));
+        return new Promise((resolve, reject) => {
+            this.db.orders.bulkPut([order])
+                .then(res => {
+                    resolve(res);
+                })
+                .catch(err => console.log(err));
+        });
+    }
+
+    importOrders(orders) {
+        return new Promise((resolve, reject) => {
+            this.db.orders.bulkPut(orders)
+                .then(res => {
+                    resolve(res);
+                })
+                .catch(err => console.log(err));
+        });
+    }
+
+    clearData() {
+        this.db.orders.clear();
     }
 
     getOrders() {
