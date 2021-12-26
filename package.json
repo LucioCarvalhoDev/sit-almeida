@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/LucioCarvalhoDev/sit-almeida/issues"
   },
-  "homepage": "https://github.com/LucioCarvalhoDev/sit-almeida#readme"
+  "homepage": "https://github.com/LucioCarvalhoDev/sit-almeida#readme",
+  "dependencies": {
+    "yaml": "2.0.0-9"
+  }
 }
