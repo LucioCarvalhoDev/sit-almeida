@@ -55,7 +55,7 @@ document.getElementById('btn-config').onclick = toggleModal;
 document.getElementById('btn-export').onclick = controller.exportData.bind(controller);
 document.getElementById('btn-import').onclick = (e) => {
     e.preventDefault();
-    console.log('pah');
+
     const elem = document.createElement('input');
     elem.type = "file";
     elem.accept = ".yaml";

@@ -1,3 +1,6 @@
+import md5 from "md5";
+
+
 export default class Order {
     constructor({ name, phone, date, description, price, payment, ok }) {
         this.name = name;
@@ -8,11 +11,18 @@ export default class Order {
         this.price = price;
         this.payment = payment;
         this.ok = ok;
+        this.id;
 
         for (const prop in this) {
             if (prop == 'ok') continue;
             this[prop] = String(this[prop]).toUpperCase();
         }
+
+        this.init();
+    }
+
+    init() {
+        this.id = md5(JSON.stringify(this));
     }
 
     getFormatedDateUS() {

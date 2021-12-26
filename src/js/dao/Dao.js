@@ -11,10 +11,11 @@ export default class Dao {
 
         this.db.version(1).stores({
             orders: `
-                date,
+                id,
                 name,
                 phone,
                 description,
+                date,
                 price,
                 payment,
                 ok
