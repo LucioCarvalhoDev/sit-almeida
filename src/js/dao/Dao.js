@@ -1,3 +1,5 @@
+import Dexie from "dexie";
+
 export default class Dao {
     constructor() {
         this.db;

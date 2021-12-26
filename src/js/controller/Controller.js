@@ -1,4 +1,4 @@
-import { stringify, parse } from "./../../node_modules/yaml/browser/index.js";
+import { stringify, parse } from "yaml";
 import Dao from "../dao/Dao.js";
 import Filter from "../model/Filter.js";
 import Order from "../model/Order.js";

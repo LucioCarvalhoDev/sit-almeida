@@ -1,4 +1,4 @@
-import Controller from "./controller/Controller.js";
+import Controller from "./js/controller/Controller.js";
 
 const table = document.querySelector(".m_table_orders");
 const modalContainer = document.querySelector(".m_modal-area");

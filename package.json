@@ -1,9 +1,8 @@
 {
   "name": "sit-almeida",
   "version": "1.0.0",
-  "type": "module",
   "description": "Sistema transacional para um pequeno negócio.",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +18,11 @@
   },
   "homepage": "https://github.com/LucioCarvalhoDev/sit-almeida#readme",
   "dependencies": {
+    "dexie": "^3.2.0",
     "yaml": "2.0.0-9"
+  },
+  "devDependencies": {
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
   }
 }
