@@ -1,3 +1,4 @@
+import { stringify } from "./../../node_modules/yaml/browser/index.js";
 import Dao from "../dao/Dao.js";
 import Filter from "../model/Filter.js";
 import Order from "../model/Order.js";
@@ -26,22 +27,34 @@ export default class Controller {
         this.getOrders();
     }
 
-    /*
+
     exportData() {
-        const now = new Date();
- 
-        const link = document.createElement('a');
-        link.href = 'data:application/json,' + encodeURIComponent(); // inserir aqui os dados
-        link.taget = '_blank';
-        link.download = `pedidos_${date.getDate()}-${date.getMonth() + 1}-${date.getUTCFullYear()}.json`;
- 
-    } 
-    */
+
+        this.dao.getOrders()
+            .then(dataArr => {
+                return dataArr.map(data => new Order(data));
+            })
+            .then(orderArr => {
+                const now = new Date();
+                const content = stringify(orderArr);
+
+                const link = document.createElement('a');
+                link.href = 'data:application/text,' + encodeURIComponent(content); // inserir aqui os dados
+                link.taget = '_blank';
+                link.download = `pedidos_${now.getDate()}-${now.getMonth() + 1}-${now.getUTCFullYear()}.yaml`;
+
+                link.click();
+
+            });
+
+
+    }
+
 
     createOrder(data) {
         const order = new Order(data);
-        this.orders.push(order);
         this.dao.createOrder(order);
+        this.getOrders();
     }
 
     getOrders() {

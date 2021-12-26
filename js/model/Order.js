@@ -28,16 +28,13 @@ export default class Order {
     getDateForView() {
         const day = new Date(+this.date).getDay();
 
-        if (day < 1 || day > 7)
-            throw new Error('dia da semana invalido: ' + day);
-
-        return (day == 1 ? "Seg, " :
-            day == 2 ? "Ter, " :
-                day == 3 ? "Qua, " :
-                    day == 4 ? "Qui, " :
-                        day == 5 ? "Sex, " :
-                            day == 6 ? "Sab, " :
-                                day == 7 ? "Dom, " : "Err, ") + this.getFormatedDateBR();
+        return (day == 0 ? "Dom, " :
+            day == 1 ? "Seg, " :
+                day == 2 ? "Ter, " :
+                    day == 3 ? "Qua, " :
+                        day == 4 ? "Qui, " :
+                            day == 5 ? "Sex, " :
+                                day == 6 ? "Sab, " : "Err, ") + this.getFormatedDateBR();
 
     }
 
