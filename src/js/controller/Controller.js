@@ -12,6 +12,8 @@ export default class Controller {
         this.tableView = new TableView(table);
         this.orders = [];
 
+        this.mode = "settings";
+
         this.inputs = {
             name: document.getElementById('ipt-name'),
             phone: document.getElementById('ipt-phone'),

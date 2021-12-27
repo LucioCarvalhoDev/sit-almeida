@@ -1,5 +1,5 @@
 - name: MARIAN
-  phone: 806.847.3502
+  phone: 999824598
   date: "1638632672449"
   description: 1 AL
   price: "6"
@@ -7,7 +7,7 @@
   ok: false
   id: 00169272ec7db1177c86a39eba47c161
 - name: EDEN
-  phone: 818.908.2833 X585
+  phone: 11 988149837
   date: "1614644464856"
   description: 5 AL
   price: "30"
@@ -15,7 +15,7 @@
   ok: true
   id: 053a7dc6fe2add82995ae892bf6aa9a6
 - name: NEIL
-  phone: 346-363-1672 X7022
+  phone: 3689 4691
   date: "1634180777090"
   description: 1 AL
   price: "6"
@@ -23,7 +23,7 @@
   ok: false
   id: 06173d5f55743af29139ffd04c3cce5f
 - name: CALLIE
-  phone: 1-601-265-0583
+  phone: (70) 9 9857-2356
   date: "1611317561131"
   description: 3 AL
   price: "18"
@@ -31,7 +31,7 @@
   ok: true
   id: 131d1274d0d5e57e8520edbd5dac158a
 - name: JAIDA
-  phone: 769-377-1293 X5318
+  phone: (71) 9909434
   date: "1628832233977"
   description: 3 AL
   price: "18"
@@ -39,7 +39,7 @@
   ok: false
   id: 13f82c9447b5dbeb73ca5e53ab0c377c
 - name: JADA
-  phone: (494) 215-5878
+  phone: 3645-2130
   date: "1616709868014"
   description: 6 AL
   price: "36"
@@ -47,7 +47,7 @@
   ok: false
   id: 203bde71016c35b7fbda4ffa038ab7e6
 - name: CRISTOBAL
-  phone: 933.883.3381
+  phone: 1240
   date: "1637731812195"
   description: 2 AL
   price: "12"
@@ -55,7 +55,7 @@
   ok: true
   id: 209ba0f917481a503036b0b92340edf8
 - name: ILENE
-  phone: 538.794.8258 X7335
+  phone: 55 71 9 996876658
   date: "1632727281458"
   description: 3 AL
   price: "18"
@@ -63,7 +63,7 @@
   ok: true
   id: 3c78f2ce35ade391ee6fcb130b2c1ca3
 - name: GREGORIO
-  phone: 948.292.5567 X39618
+  phone: 9987 6789
   date: "1621216472085"
   description: 3 AL
   price: "18"
@@ -71,7 +71,7 @@
   ok: false
   id: 3da6e516504ba71b41385350b3c10093
 - name: COLTON
-  phone: 904.875.2374 X548
+  phone: 1712
   date: "1638135933014"
   description: 6 AL
   price: "36"
@@ -86,136 +86,8 @@
   payment: PG
   ok: true
   id: 4908653426917764c3356bf154ccc6aa
-- name: LEMPI
-  phone: 411-732-5255 X42564
-  date: "1618367252888"
-  description: 2 AL
-  price: "12"
-  payment: PG
-  ok: true
-  id: 4f3b6b2990d54c572c0e0e9067907f3a
-- name: STEPHANIE
-  phone: 215.296.5873 X7709
-  date: "1618212992952"
-  description: 2 AL
-  price: "12"
-  payment: PG
-  ok: true
-  id: 507ca149f44ea95521475c505291c169
-- name: EDUARDO
-  phone: 339-433-4393 X34366
-  date: "1633546254074"
-  description: 3 AL
-  price: "18"
-  payment: PG
-  ok: true
-  id: 50d16e4be6120f9f07559ed0cb1c2c9a
-- name: MEDA
-  phone: 719.293.2218 X49020
-  date: "1622369701173"
-  description: 2 AL
-  price: "12"
-  payment: PG
-  ok: false
-  id: 5249f7ad9d5d537716b078d22cd7b7ed
-- name: JERMAIN
-  phone: (862) 307-5250 X65773
-  date: "1613570279720"
-  description: 1 AL
-  price: "6"
-  payment: PG
-  ok: false
-  id: 5d30b3c142bdada0316d41c392850573
-- name: MERCEDES
-  phone: 847-987-9507 X599
-  date: "1633786337883"
-  description: 5 AL
-  price: "30"
-  payment: PG
-  ok: true
-  id: 606acbe295dfe865ea00026230f7e6a7
-- name: VELLA
-  phone: 241.856.6923 X9114
-  date: "1632305130599"
-  description: 6 AL
-  price: "36"
-  payment: PG
-  ok: false
-  id: 63e854e81aace74ee78725351c13b9ea
-- name: ANTONETTE
-  phone: (926) 914-0851 X7343
-  date: "1636587368495"
-  description: 2 AL
-  price: "12"
-  payment: PG
-  ok: false
-  id: 7b0831761045c5a7dcc5ec50b1d0b856
-- name: DEVONTE
-  phone: 549.221.0816 X86154
-  date: "1617789395258"
-  description: 6 AL
-  price: "36"
-  payment: PG
-  ok: false
-  id: 7d27ab727a023e329adc8a671122a0a8
-- name: KHALIL
-  phone: 1-748-347-4810 X92002
-  date: "1638873527391"
-  description: 1 AL
-  price: "6"
-  payment: PG
-  ok: true
-  id: 7dc1c40111b908b5ea2e0fff1f95bcc5
-- name: CAROLANNE
-  phone: 1-329-533-9063 X71059
-  date: "1632346644491"
-  description: 3 AL
-  price: "18"
-  payment: PG
-  ok: false
-  id: 7ecc2009226a9a99b0155a6c8993e679
-- name: CHRISTINE
-  phone: 510.777.3241 X8741
-  date: "1628013233922"
-  description: 5 AL
-  price: "30"
-  payment: PG
-  ok: true
-  id: 826be07c5fe92f5fa7c7a064c86952f0
-- name: CARMEN
-  phone: 1-955-739-3370 X35053
-  date: "1637145142665"
-  description: 4 AL
-  price: "24"
-  payment: PG
-  ok: true
-  id: 9311ef495bcabda48e6187aba1710e7f
-- name: DELANEY
-  phone: 722.398.4855 X620
-  date: "1630207393389"
-  description: 1 AL
-  price: "6"
-  payment: PG
-  ok: true
-  id: 937c1078ccf561b5b3253bd9e909710d
-- name: BERNADETTE
-  phone: 1-709-470-1702
-  date: "1623890084178"
-  description: 4 AL
-  price: "24"
-  payment: PG
-  ok: false
-  id: 968bc8b58a6d2851f3d018016178b641
-- name: MCKAYLA
-  phone: 1-209-623-5919 X65043
-  date: "1622508905831"
-  description: 2 AL
-  price: "12"
-  payment: PG
-  ok: false
-  id: 9f7d8e959a8617fdac83e071aecc2f97
 - name: CORTEZ
-  phone: (399) 960-4592 X7418
+  phone: (39) 9960-4592 
   date: "1614166919592"
   description: 5 AL
   price: "30"
@@ -223,7 +95,7 @@
   ok: true
   id: a92986faa4e9a42c210389160bdf7907
 - name: DEVEN
-  phone: 714.763.6471
+  phone: 7140 9000
   date: "1619746869051"
   description: 5 AL
   price: "30"
@@ -231,7 +103,7 @@
   ok: true
   id: abc62c1de050f2a7fc6e3dd93c8a16f9
 - name: WILLA
-  phone: 1-905-917-3778
+  phone: --
   date: "1636357161811"
   description: 4 AL
   price: "24"
@@ -239,7 +111,7 @@
   ok: false
   id: bc4767591defe925aaaa507c9343301c
 - name: LUCY
-  phone: (279) 244-1123 X67965
+  phone: --
   date: "1631861151268"
   description: 3 AL
   price: "18"
@@ -247,42 +119,18 @@
   ok: true
   id: c1f693d31b8f5ecbfdf8eec29e09c78c
 - name: ASHTON
-  phone: 499.874.7434
+  phone: 9 88206066
   date: "1637291787085"
   description: 2 AL
   price: "12"
   payment: PG
   ok: false
   id: c355271b18d6f0667f3f31e162416768
-- name: CARMINE
-  phone: 399.844.4858
-  date: "1630237670188"
-  description: 3 AL
-  price: "18"
-  payment: PG
-  ok: true
-  id: cbab73c2d54a35f4b67295ab7f8b60f1
-- name: WILBER
-  phone: 715-758-1269
-  date: "1616213868145"
-  description: 1 AL
-  price: "6"
-  payment: PG
-  ok: false
-  id: d7a5c270d54059b44d5a479b8ba8d296
 - name: JULIO
-  phone: (338) 979-1254 X55959
+  phone: (38) 9979-1254
   date: "1634646953019"
   description: 3 AL
   price: "18"
   payment: PG
   ok: true
   id: e5cb1de801587d913d5afa9e8d161e06
-- name: BRENNA
-  phone: 1-417-215-6291 X00792
-  date: "1639985727602"
-  description: 2 AL
-  price: "12"
-  payment: PG
-  ok: false
-  id: ea0012f7a1d75c8d4d1dc550c1f99761

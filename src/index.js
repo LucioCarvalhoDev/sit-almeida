@@ -1,4 +1,3 @@
-import faker from "faker";
 import Controller from "./js/controller/Controller.js";
 
 const table = document.querySelector(".m_table_orders");
@@ -75,25 +74,3 @@ document.getElementById('btn-clear-data').onclick = (e) => {
 };
 
 document.getElementById('overlay').onclick = toggleModal;
-
-function generateFakeOrders(quantity) {
-    const dataArr = [];
-
-    while (dataArr.length < quantity) {
-        const plier = Math.floor(Math.random() * 6 + 1);
-        const data = {};
-
-        data.name = faker.name.firstName(),
-            data.phone = faker.phone.phoneNumber(),
-
-            data.date = faker.date.past().getTime(),
-            data.description = plier + ' AL',
-            data.price = plier * 6,
-            data.payment = Math.floor(Math.random() * 1 + 1) == 1 ? 'PG' : 'AP',
-            data.ok = Math.floor(Math.random() * 2 + 1) == 1,
-
-            dataArr.push(data);
-    }
-
-    return dataArr;
-}

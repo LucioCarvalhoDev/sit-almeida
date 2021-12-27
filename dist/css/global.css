@@ -9,6 +9,11 @@
     --white: #fdfdfd;
 }
 
+body[data-modal="on"] {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
 * {
     box-sizing: border-box;
 }
