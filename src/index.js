@@ -5,39 +5,19 @@ const modalContainer = document.querySelector(".m_modal-area");
 
 const controller = new Controller(table);
 
-const testOrder1 = {
-    name: 'Julia Vigoline',
-    phone: '99875678',
-    description: '2 AL',
-    date: new Date().getTime() + '',
-    price: '16',
-    payment: 'AP 6',
-    ok: false
-};
-const testOrder2 = {
-    name: 'CARLOS',
-    phone: '1938',
-    description: '1 AL',
-    date: '1638316800000',
-    price: '8',
-    payment: 'PG',
-    ok: false
-};
 
-// controller.createOrder(testOrder2);
-
-function applyFilter(e) {
+const applyFilter = (e) => {
     e.preventDefault();
     controller.filter();
 }
 
-function clearFilters(e) {
+const clearFilters = (e) => {
     e.preventDefault();
     controller.clearInputs();
     controller.filter();
 }
 
-function toggleModal(e) {
+const  toggleModal = (e) => {
     e.preventDefault();
 
     if (modalContainer.classList.contains('--hidden')) {
@@ -47,13 +27,7 @@ function toggleModal(e) {
     }
 }
 
-document.querySelector('.h_form').onsubmit = applyFilter;
-document.getElementById('btn-search').onclick = applyFilter;
-document.getElementById('btn-clear').onclick = clearFilters;
-
-document.getElementById('btn-config').onclick = toggleModal;
-document.getElementById('btn-export').onclick = controller.exportData.bind(controller);
-document.getElementById('btn-import').onclick = (e) => {
+const importData = (e) => {
     e.preventDefault();
 
     const elem = document.createElement('input');
@@ -67,10 +41,24 @@ document.getElementById('btn-import').onclick = (e) => {
     };
     elem.click();
 };
-document.getElementById('btn-clear-data').onclick = (e) => {
-    e.preventDefault();
 
+const exportData = (e) => {
+    e.preventDefault();
+    controller.exportData();
+}
+
+const clearData = (e) => {
+    e.preventDefault();
     controller.clearData();
-};
+}
+
+document.querySelector('.h_form').onsubmit = applyFilter;
+document.getElementById('btn-search').onclick = applyFilter;
+document.getElementById('btn-clear').onclick = clearFilters;
+
+document.getElementById('btn-config').onclick = toggleModal;
+document.getElementById('btn-export').onclick = exportData;
+document.getElementById('btn-import').onclick = importData;
+document.getElementById('btn-clear-data').onclick = clearData;
 
 document.getElementById('overlay').onclick = toggleModal;
