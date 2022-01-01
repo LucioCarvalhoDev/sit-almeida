@@ -30,6 +30,8 @@ export default class Controller {
 
     init() {
         this.getOrders();
+        // this.setConfig();
+        // this.modalController.toggleModal();
     }
 
     exportData() {
