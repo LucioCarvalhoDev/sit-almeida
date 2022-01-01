@@ -21,7 +21,7 @@ document.getElementById('btn-clear').onclick = clearFilters;
 document.getElementById('btn-config').onclick = (e) => {
     e.preventDefault();
 
-    controller.modalController.toggleModal();
+    controller.modalController.toggleModal(e);
     controller.setConfig();
 };
 

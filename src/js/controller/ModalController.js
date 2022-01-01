@@ -21,10 +21,10 @@ export default class ModalController {
     }
 
     init() {
-        this._overlay.onclick = this.toggleModal;
+        this._overlay.onclick = this.toggleModal.bind(this);
     }
 
-    toggleModal() {
+    toggleModal(e) {
         if (this._modalContainer.classList.contains('--hidden')) {
             this._modalContainer.classList.remove('--hidden');
         } else if (e.target.id == "overlay") {
