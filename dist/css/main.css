@@ -74,6 +74,29 @@
     outline: none;
 }
 
+.m_add {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-green);
+    color: whitesmoke;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50px;
+}
+
+.m_add_icon {
+    font-size: calc(4rem * .6);
+}
+
+.m_add:hover {
+    cursor: pointer;
+}
+
 @media screen and (width < 780px) {
 
     .m_table_columns_title--phone {
