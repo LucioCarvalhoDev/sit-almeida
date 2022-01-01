@@ -27,8 +27,11 @@ export default class ModalController {
     toggleModal(e) {
         if (this._modalContainer.classList.contains('--hidden')) {
             this._modalContainer.classList.remove('--hidden');
+            document.querySelector('body').dataset.modal = "on";
+
         } else if (e.target.id == "overlay") {
             this._modalContainer.classList.add('--hidden');
+            document.querySelector('body').dataset.modal = "off";
         }
     };
 
