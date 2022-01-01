@@ -3,6 +3,7 @@ import Dao from "../dao/Dao.js";
 import Filter from "../model/Filter.js";
 import Order from "../model/Order.js";
 import TableView from "../view/TableView.js";
+import ModalController from "./ModalController.js";
 
 
 
@@ -10,6 +11,8 @@ export default class Controller {
     constructor(table) {
         this.dao = new Dao();
         this.tableView = new TableView(table);
+        this.modalController = new ModalController();
+
         this.orders = [];
 
         this.mode = "settings";
@@ -28,7 +31,6 @@ export default class Controller {
     init() {
         this.getOrders();
     }
-
 
     exportData() {
         this.dao.getOrders()
@@ -104,7 +106,28 @@ export default class Controller {
         }
     }
 
-    sort() {
+    setConfig() {
+        this.modalController.setConfig();
 
+        document.getElementById('btn-export').onclick = this.exportData.bind(this);
+        document.getElementById('btn-import').onclick = () => {
+
+            const elem = document.createElement('input');
+            elem.type = 'file';
+            elem.accept = '.yaml';
+
+            elem.onchange = (event) => {
+                event.target.files[0]
+                    .text()
+                    .then(text => this.importData(text));
+            };
+            elem.click();
+        };
+
+        document.getElementById('btn-clear-data').onclick = (e) => {
+            e.preventDefault();
+
+            this.clearData();
+        };
     }
 }

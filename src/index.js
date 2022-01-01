@@ -28,14 +28,11 @@ const toggleModal = (e) => {
     }
 };
 
-const importData = (e) => {
+const openConfig = (e) => {
     e.preventDefault();
 
-
-    document.getElementById('btn-config').onclick = (e) => {
-        toggleModal(e);
-        overlay.innerHTML = `
-<div class="m_modal-area_overlay_modal">
+    modalContainer.innerHTML = `
+    <div class="m_modal-area_overlay_modal">
     <h4 class="m_modal-area_overlay_modal_title">Configurações</h4>
     <div class="m_modal-area_overlay_modal_sec">
         <input type="button" value="Exportar" id="btn-export"
@@ -46,51 +43,43 @@ const importData = (e) => {
     <div class="m_modal-area_overlay_modal_sec">
         <input type="button" value="X" id="btn-clear-data" class="m_modal-area_overlay_modal_sec_btn">
     </div>
-</div>
-    `;
+</div>`;
 
-        document.getElementById('btn-export').onclick = controller.exportData.bind(controller);
-        document.getElementById('btn-import').onclick = (e) => {
-            e.preventDefault();
 
-            const elem = document.createElement('input');
-            elem.type = "file";
-            elem.accept = ".yaml";
+    document.getElementById('btn-export').onclick = controller.exportData.bind(controller);
+    document.getElementById('btn-import').onclick = (e) => {
+        e.preventDefault();
 
-            elem.onchange = (event) => {
-                event.target.files[0]
-                    .text()
-                    .then(text => controller.importData(text));
-            };
-            elem.click();
-        };
-        document.getElementById('btn-clear-data').onclick = (e) => {
-            e.preventDefault();
+        const elem = document.createElement('input');
+        elem.type = "file";
+        elem.accept = ".yaml";
 
-            controller.clearData();
+        elem.onchange = (event) => {
+            event.target.files[0]
+                .text()
+                .then(text => controller.importData(text));
         };
         elem.click();
     };
 
-    const exportData = (e) => {
+    document.getElementById('btn-clear-data').onclick = (e) => {
         e.preventDefault();
-        controller.exportData();
-    };
 
-    const clearData = (e) => {
-        e.preventDefault();
         controller.clearData();
     };
-
-    document.querySelector('.h_form').onsubmit = applyFilter;
-    document.getElementById('btn-search').onclick = applyFilter;
-    document.getElementById('btn-clear').onclick = clearFilters;
-
-    document.getElementById('btn-config').onclick = toggleModal;
-    document.getElementById('btn-export').onclick = exportData;
-    document.getElementById('btn-import').onclick = importData;
-    document.getElementById('btn-clear-data').onclick = clearData;
-
-    document.getElementById('overlay').onclick = toggleModal;
-
 };
+
+document.querySelector('.h_form').onsubmit = applyFilter;
+document.getElementById('btn-search').onclick = applyFilter;
+document.getElementById('btn-clear').onclick = clearFilters;
+
+document.getElementById('overlay').onclick = toggleModal;
+
+document.getElementById('btn-config').onclick = (e) => {
+    e.preventDefault();
+
+    controller.modalController.toggleModal();
+    controller.setConfig();
+};;
+
+// config modal
