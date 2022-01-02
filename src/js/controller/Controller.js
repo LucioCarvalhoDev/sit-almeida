@@ -82,6 +82,29 @@ export default class Controller {
 
     updateView(orders) {
         this.tableView.updateView(orders);
+
+        const ordersHtml = document.querySelectorAll('.m_table_orders_order');
+        // ordersHtml.forEach(elem => elem.onclick = (e) => {
+        //     e.stopPropagation();
+
+        //     const data = {};
+        //     let orderElem;
+        //     console.log(e.target.dataset.includes);
+        //     if (e.target.dataset.contains('order')) {
+        //         orderElem = e.target;
+        //     } else {
+        //         orderElem = e.parentElement();
+        //     }
+
+        //     orderElem.children.forEach(field => {
+        //         const val = field.textContent || field.value;
+        //         data[val] = val;
+        //     });
+
+        //     console.log(data);
+
+
+        // });
     }
 
     filter() {
