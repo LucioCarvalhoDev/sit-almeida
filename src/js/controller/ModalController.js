@@ -17,6 +17,47 @@ export default class ModalController {
             </div>
         </div>`;
 
+        this._orderHTML = `
+        <form class="m_md_bg_order">
+            <h4 class="m_md_bg_order_title">order</h4>
+            <div class="m_md_bg_order_sec">
+                <div class="m_md_bg_order_sec_fild">
+                    <label class="m_md_bg_order_sec_field_label" for="ipt-order-name">Nome</label>
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-name">
+                    <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
+                </div>
+                <div class="m_md_bg_order_sec_fild">
+                    <label class="m_md_bg_order_sec_field_label" for="ipt-order-tel">Tel</label>
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-tel">
+                    <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
+                </div>
+                <div class="m_md_bg_order_sec_fild">
+                    <label class="m_md_bg_order_sec_field_label" for="ipt-order-des">des</label>
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-des">
+                    <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
+                </div>
+                <div class="m_md_bg_order_sec_fild">
+                    <label class="m_md_bg_order_sec_field_label" for="ipt-order-price">R$</label>
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-price">
+                    <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
+                </div>
+                <div class="m_md_bg_order_sec_fild">
+                    <label class="m_md_bg_order_sec_field_label" for="ipt-order-date">date</label>
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="date" id="ipt-order-date">
+                    <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
+                </div>
+                <div class="m_md_bg_order_sec_fild">
+                    <label class="m_md_bg_order_sec_field_label" for="ipt-order-ok">OK</label>
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="checkbox" id="ipt-order-ok">
+                    <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
+                </div>
+            </div>
+            <div class="m_md_bg_order_sec">
+                <input type="button" class="m_md_bg_order_sec_btn" value="Cancelar" />
+                <input type="button" class="m_md_bg_order_sec_btn" value="Salvar" />
+            </div>
+        </form>`;
+
 
         this.init();
     }
@@ -41,6 +82,6 @@ export default class ModalController {
     }
 
     setOrder() {
-
+        this._overlay.innerHTML = this._orderHTML;
     }
 }

@@ -30,8 +30,6 @@ export default class Controller {
 
     init() {
         this.getOrders();
-        // this.setConfig();
-        // this.modalController.toggleModal();
     }
 
     exportData() {
@@ -131,5 +129,19 @@ export default class Controller {
 
             this.clearData();
         };
+    }
+
+    setOrder() {
+        this.modalController.setOrder();
+        this.modalController.toggleModal();
+
+        const enableSwitchers = (document.querySelectorAll('[data-fild]'));
+        enableSwitchers.forEach(btn => {
+            const ipt = btn.previousElementSibling;
+            btn.onclick = () => {
+                ipt.disabled = !ipt.disabled;
+            };
+        });
+
     }
 }

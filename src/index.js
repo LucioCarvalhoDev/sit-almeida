@@ -25,3 +25,7 @@ document.getElementById('btn-config').onclick = (e) => {
     controller.setConfig();
 };
 
+document.getElementById('add').onclick = (e) => {
+    controller.setOrder();
+};
+
