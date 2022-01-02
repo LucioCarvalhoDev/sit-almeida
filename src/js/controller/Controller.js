@@ -81,30 +81,14 @@ export default class Controller {
     }
 
     updateView(orders) {
-        this.tableView.updateView(orders);
+        const ordersHtml = Array.from(this.tableView.updateView(orders));
 
-        const ordersHtml = document.querySelectorAll('.m_table_orders_order');
-        // ordersHtml.forEach(elem => elem.onclick = (e) => {
-        //     e.stopPropagation();
+        ordersHtml.forEach(orderElem => orderElem.onclick = (e) => {
+            e.stopPropagation();
 
-        //     const data = {};
-        //     let orderElem;
-        //     console.log(e.target.dataset.includes);
-        //     if (e.target.dataset.contains('order')) {
-        //         orderElem = e.target;
-        //     } else {
-        //         orderElem = e.parentElement();
-        //     }
+            console.log('a implementar edição');
 
-        //     orderElem.children.forEach(field => {
-        //         const val = field.textContent || field.value;
-        //         data[val] = val;
-        //     });
-
-        //     console.log(data);
-
-
-        // });
+        });
     }
 
     filter() {
@@ -129,8 +113,8 @@ export default class Controller {
         }
     }
 
-    setConfig() {
-        this.modalController.setConfig();
+    openConfig() {
+        this.modalController.openConfig();
 
         document.getElementById('btn-export').onclick = this.exportData.bind(this);
         document.getElementById('btn-import').onclick = () => {
@@ -154,8 +138,8 @@ export default class Controller {
         };
     }
 
-    setOrder() {
-        this.modalController.setOrder();
+    openEditor(order = null) {
+        this.modalController.openEditor();
         this.modalController.toggleModal();
 
         const enableSwitchers = (document.querySelectorAll('[data-fild]'));

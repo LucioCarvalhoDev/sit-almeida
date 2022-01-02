@@ -15,7 +15,7 @@ export default class Order {
 
         for (const prop in this) {
             if (prop == 'ok') continue;
-            this[prop] = String(this[prop]).toUpperCase();
+            this[prop] = String(this[prop]).toUpperCase().trim();
         }
 
         this.init();

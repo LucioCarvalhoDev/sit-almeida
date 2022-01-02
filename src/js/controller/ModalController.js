@@ -54,7 +54,7 @@ export default class ModalController {
             </div>
             <div class="m_md_bg_order_sec">
                 <input type="button" class="m_md_bg_order_sec_btn" value="Cancelar" />
-                <input type="button" class="m_md_bg_order_sec_btn" value="Salvar" />
+                <input type="button" class="m_md_bg_order_sec_btn" value="Salvar" id="btn-editor-submit"/>
             </div>
         </form>`;
 
@@ -77,11 +77,17 @@ export default class ModalController {
         }
     };
 
-    setConfig() {
+    openConfig() {
         this._overlay.innerHTML = this._configHTML;
     }
 
-    setOrder() {
+    openEditor(data) {
+        console.log(data);
         this._overlay.innerHTML = this._orderHTML;
+        const subBtn = document.getElementById('btn-editor-submit');
+
+        const inputs = this._overlay.querySelectorAll('input:not([type="button"])');
+        console.log(inputs);
+
     }
 }

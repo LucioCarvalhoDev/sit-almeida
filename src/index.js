@@ -22,10 +22,10 @@ document.getElementById('btn-config').onclick = (e) => {
     e.preventDefault();
 
     controller.modalController.toggleModal(e);
-    controller.setConfig();
+    controller.openConfig();
 };
 
 document.getElementById('add').onclick = (e) => {
-    controller.setOrder();
+    controller.openEditor();
 };
 
