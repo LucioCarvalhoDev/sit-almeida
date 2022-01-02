@@ -1,5 +1,5 @@
 import md5 from "md5";
-
+import dateFormat from "dateformat";
 
 export default class Order {
     constructor({ name, phone, date, description, price, payment, ok }) {
@@ -37,18 +37,8 @@ export default class Order {
         this.id = md5(JSON.stringify(this));
     }
 
-    getFormatedDateUS() {
-        const objDate = new Date(+this.date);
-        return (`${objDate.getFullYear()}-${objDate.getMonth() + 1}-${String(objDate.getDate())}`);
-    }
-
-    getFormatedDateBR() {
-        const objDate = new Date(+this.date);
-        return (`${String(objDate.getDate()).padStart(2, '0')}/${objDate.getMonth() + 1}/${objDate.getFullYear()}`);
-    }
-
-    getDateForView() {
-        const day = new Date(+this.date).getDay();
+    dateForView() {
+        const day = new Date(this.date).getDay();
 
         return (day == 0 ? "Dom, " :
             day == 1 ? "Seg, " :
@@ -56,8 +46,7 @@ export default class Order {
                     day == 3 ? "Qua, " :
                         day == 4 ? "Qui, " :
                             day == 5 ? "Sex, " :
-                                day == 6 ? "Sab, " : "Err, ") + this.getFormatedDateBR();
-
+                                day == 6 ? "Sab, " : "Err, ") + dateFormat(this.date, 'dd/mm/yyyy');
     }
 
 

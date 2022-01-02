@@ -101,7 +101,7 @@ export default class ModalController {
 
                 ipt.value = data[propertyName];
                 if (propertyName == 'date') {
-                    ipt.value = (dateFormat(+data[propertyName] || new Date(), "yyyy-mm-dd"));
+                    ipt.value = (dateFormat(data[propertyName] || new Date(), "yyyy-mm-dd"));
                 } else if (propertyName == 'ok') {
                     ipt.checked = data[propertyName];
                 }
@@ -117,8 +117,10 @@ export default class ModalController {
                     const propertyName = ipt.dataset.editorField;
 
                     switch (ipt.propertyName) {
-                        case 'date':
+                        case 'ok':
                             newData[propertyName] = ipt.checked;
+                        case 'date':
+                            newData[propertyName] = ipt.value;
                         default:
                             newData[propertyName] = ipt.value;
                     }

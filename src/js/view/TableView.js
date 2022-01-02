@@ -16,7 +16,7 @@ export default class TableView {
         ${order.description}
         </span>
         <span type="date" class="m_table_orders_order_field" data-property="date">
-        ${order.getDateForView()}
+        ${order.dateForView()}
         </span>
         <span class="m_table_orders_order_field" data-property="price">
         ${order.price}
