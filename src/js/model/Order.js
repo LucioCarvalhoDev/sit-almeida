@@ -21,6 +21,18 @@ export default class Order {
         this.init();
     }
 
+    static template() {
+        return {
+            name: '',
+            phone: '',
+            date: '',
+            description: '',
+            price: '',
+            payment: '',
+            ok: '',
+        };
+    }
+
     init() {
         this.id = md5(JSON.stringify(this));
     }
@@ -32,7 +44,7 @@ export default class Order {
 
     getFormatedDateBR() {
         const objDate = new Date(+this.date);
-        return (`${String(objDate.getDate())}-${objDate.getMonth() + 1}-${objDate.getFullYear()}`);
+        return (`${String(objDate.getDate()).padStart(2, '0')}/${objDate.getMonth() + 1}/${objDate.getFullYear()}`);
     }
 
     getDateForView() {

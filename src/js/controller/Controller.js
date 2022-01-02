@@ -84,10 +84,8 @@ export default class Controller {
         const ordersHtml = Array.from(this.tableView.updateView(orders));
 
         ordersHtml.forEach(orderElem => orderElem.onclick = (e) => {
-            e.stopPropagation();
-
-            console.log('a implementar edição');
-
+            this.dao.get(orderElem.dataset.id)
+                .then(order => this.openEditor(order, this.dao.updateOrder));
         });
     }
 
@@ -138,8 +136,10 @@ export default class Controller {
         };
     }
 
-    openEditor(order = null) {
-        this.modalController.openEditor();
+    openEditor(oldOrder = new Order(Order.template()), action = () => { }) {
+        const currentOrder = new Order(oldOrder);
+
+        const editorPromise = this.modalController.openEditor(oldOrder);
         this.modalController.toggleModal();
 
         const enableSwitchers = (document.querySelectorAll('[data-fild]'));
@@ -150,5 +150,20 @@ export default class Controller {
             };
         });
 
+        editorPromise
+            .then(data => {
+                for (let property in data) {
+                    currentOrder[property] = data[property];
+                }
+                this.updateOrder(currentOrder);
+            });
+    }
+
+    updateOrder(order) {
+        this.dao.updateOrder(order.id, order)
+            .then(() => {
+                this.getOrders();
+                this.updateView(this.orders);
+            });
     }
 }

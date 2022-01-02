@@ -1,3 +1,5 @@
+import dateFormat from "dateformat";
+
 export default class ModalController {
     constructor() {
         this._modalContainer = document.querySelector('.m_box');
@@ -23,38 +25,44 @@ export default class ModalController {
             <div class="m_md_bg_order_sec">
                 <div class="m_md_bg_order_sec_fild">
                     <label class="m_md_bg_order_sec_field_label" for="ipt-order-name">Nome</label>
-                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-name">
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-name" 
+                        data-editor-field="name">
                     <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
                 </div>
                 <div class="m_md_bg_order_sec_fild">
                     <label class="m_md_bg_order_sec_field_label" for="ipt-order-tel">Tel</label>
-                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-tel">
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-tel" 
+                        data-editor-field="phone">
                     <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
                 </div>
                 <div class="m_md_bg_order_sec_fild">
                     <label class="m_md_bg_order_sec_field_label" for="ipt-order-des">des</label>
-                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-des">
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-des" 
+                        data-editor-field="description">
                     <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
                 </div>
                 <div class="m_md_bg_order_sec_fild">
                     <label class="m_md_bg_order_sec_field_label" for="ipt-order-price">R$</label>
-                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-price">
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="text" id="ipt-order-price" 
+                        data-editor-field="price">
                     <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
                 </div>
                 <div class="m_md_bg_order_sec_fild">
                     <label class="m_md_bg_order_sec_field_label" for="ipt-order-date">date</label>
-                    <input class="m_md_bg_order_sec_field_ipt" disabled type="date" id="ipt-order-date">
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="date" id="ipt-order-date" 
+                        data-editor-field="date">
                     <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
                 </div>
                 <div class="m_md_bg_order_sec_fild">
                     <label class="m_md_bg_order_sec_field_label" for="ipt-order-ok">OK</label>
-                    <input class="m_md_bg_order_sec_field_ipt" disabled type="checkbox" id="ipt-order-ok">
+                    <input class="m_md_bg_order_sec_field_ipt" disabled type="checkbox" id="ipt-order-ok" 
+                        data-editor-field="ok">
                     <span class="m_md_bg_order_sec_field_edit" data-fild="off"><i class="fas fa-pen"></i></span>
                 </div>
             </div>
             <div class="m_md_bg_order_sec">
                 <input type="button" class="m_md_bg_order_sec_btn" value="Cancelar" />
-                <input type="button" class="m_md_bg_order_sec_btn" value="Salvar" id="btn-editor-submit"/>
+                <button class="m_md_bg_order_sec_btn" id="btn-editor-submit">Salvar</button>
             </div>
         </form>`;
 
@@ -82,12 +90,44 @@ export default class ModalController {
     }
 
     openEditor(data) {
-        console.log(data);
-        this._overlay.innerHTML = this._orderHTML;
-        const subBtn = document.getElementById('btn-editor-submit');
+        return new Promise((resolve, reject) => {
+            this._overlay.innerHTML = this._orderHTML;
+            const saveBtn = document.getElementById('btn-editor-submit');
 
-        const inputs = this._overlay.querySelectorAll('input:not([type="button"])');
-        console.log(inputs);
+            // preenche campos do editor com dados fornecidos
+            const inputs = this._overlay.querySelectorAll('input:not([type="button"]):not([type="submit"])');
+            inputs.forEach(ipt => {
+                const propertyName = ipt.dataset.editorField;
+
+                ipt.value = data[propertyName];
+                if (propertyName == 'date') {
+                    ipt.value = (dateFormat(+data[propertyName] || new Date(), "yyyy-mm-dd"));
+                } else if (propertyName == 'ok') {
+                    ipt.checked = data[propertyName];
+                }
+            });
+
+            saveBtn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+
+                this._overlay.click();
+
+                const newData = {};
+                inputs.forEach(ipt => {
+                    const propertyName = ipt.dataset.editorField;
+
+                    switch (ipt.propertyName) {
+                        case 'date':
+                            newData[propertyName] = ipt.checked;
+                        default:
+                            newData[propertyName] = ipt.value;
+                    }
+                });
+
+                resolve(newData);
+
+            });
+        });
 
     }
 }

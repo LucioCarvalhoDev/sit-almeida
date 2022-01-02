@@ -5,7 +5,7 @@ export default class TableView {
 
     templateLine(order, idx) {
         return `
-    <div class="m_table_orders_order" data-index="${idx}">
+    <div class="m_table_orders_order" data-id="${order.id}">
         <span class="m_table_orders_order_field" data-property="name">
         ${order.name}
         </span>

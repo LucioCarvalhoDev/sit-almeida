@@ -36,6 +36,20 @@ export default class Dao {
         });
     }
 
+    get(id) {
+        return new Promise((resolve, reject) => {
+            this.db.orders.get(id)
+                .then(order => resolve(order));
+        });
+    }
+
+    updateOrder(key, order) {
+        return new Promise((resolve, reject) => {
+            this.db.orders.update(key, order)
+                .then(res => resolve(res));
+        });
+    }
+
     importOrders(orders) {
         return new Promise((resolve, reject) => {
             this.db.orders.bulkPut(orders)
