@@ -136,19 +136,23 @@ export default class Controller {
         };
     }
 
-    openEditor(oldOrder = new Order(Order.template()), action = () => { }) {
+    openEditor(oldOrder = new Order(Order.template()), action = () => { }, enableInputs = true) {
         const currentOrder = new Order(oldOrder);
 
         const editorPromise = this.modalController.openEditor(oldOrder);
         this.modalController.toggleModal();
 
-        const enableSwitchers = (document.querySelectorAll('[data-fild]'));
-        enableSwitchers.forEach(btn => {
+        const disableSwitchers = (document.querySelectorAll('[data-fild]'));
+        disableSwitchers.forEach(btn => {
             const ipt = btn.previousElementSibling;
             btn.onclick = () => {
                 ipt.disabled = !ipt.disabled;
             };
         });
+
+        if (enableInputs)
+            disableSwitchers.forEach(btn => btn.click());
+
 
         editorPromise
             .then(data => {
