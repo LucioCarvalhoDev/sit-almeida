@@ -28,8 +28,9 @@ export default class Controller {
         this.init();
     }
 
-    init() {
-        this.getOrders();
+    async init() {
+        await this.getOrders();
+        // console.log(this.orders[0]);
     }
 
     exportData() {
@@ -70,14 +71,17 @@ export default class Controller {
     }
 
     getOrders() {
-        this.orders = [];
-        this.dao.getOrders()
-            .then(dataArr => {
-                dataArr.forEach(data => {
-                    this.orders.push(new Order(data));
+        return new Promise((resolve, reject) => {
+            this.orders = [];
+            this.dao.getOrders()
+                .then(dataArr => {
+                    dataArr.forEach(data => {
+                        this.orders.push(new Order(data));
+                    });
+                    this.updateView(this.orders);
+                    resolve();
                 });
-                this.updateView(this.orders);
-            });
+        });
     }
 
     updateView(orders) {
@@ -159,6 +163,8 @@ export default class Controller {
                 for (let property in data) {
                     currentOrder[property] = data[property];
                 }
+                // console.log(oldOrder);
+                // console.log(currentOrder);
                 this.updateOrder(currentOrder);
             });
     }

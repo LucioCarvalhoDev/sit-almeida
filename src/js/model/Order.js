@@ -2,7 +2,7 @@ import md5 from "md5";
 import dateFormat from "dateformat";
 
 export default class Order {
-    constructor({ name, phone, date, description, price, payment, ok }) {
+    constructor({ name, phone, date, description, price, payment, ok, id = undefined }) {
         this.name = name;
         this.phone = phone;
 
@@ -11,10 +11,10 @@ export default class Order {
         this.price = price;
         this.payment = payment;
         this.ok = ok;
-        this.id;
+        this.id = id;
 
         for (const prop in this) {
-            if (prop == 'ok') continue;
+            if (prop == 'ok' || prop == 'id') continue;
             this[prop] = String(this[prop]).toUpperCase().trim();
         }
 
@@ -34,7 +34,8 @@ export default class Order {
     }
 
     init() {
-        this.id = md5(JSON.stringify(this));
+        if (this.id == undefined)
+            this.id = md5(JSON.stringify(this));
     }
 
     dateForView() {
