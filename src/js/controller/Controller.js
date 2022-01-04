@@ -97,6 +97,10 @@ export default class Controller {
         const params = {};
 
         for (const input in this.inputs) {
+            if (input == "date") {
+                params[input] = this.inputs[input].value;
+                continue;
+            }
             params[input] = this.inputs[input].value.toUpperCase().replaceAll(/[\s-()]/g, '');
         }
 

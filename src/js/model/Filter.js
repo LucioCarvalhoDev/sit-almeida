@@ -8,11 +8,13 @@ export default class Filter {
     }
 
     eval(order) {
+        console.log(this);
         for (const prop in this) {
             if (prop == 'date') {
-                return new Date(order.getFormatedDateUS()) >= new Date(this[prop]);
+                return new Date(order.date) >= new Date(this[prop]);
             }
-            if (!order[prop].includes(this[prop])) {
+            // if (!order[prop].includes(this[prop])) {
+            if (order[prop].match(new RegExp(this[prop], 'gi')) == null) {
                 return false;
             }
         }
