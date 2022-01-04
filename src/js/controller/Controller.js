@@ -97,7 +97,7 @@ export default class Controller {
         const params = {};
 
         for (const input in this.inputs) {
-            params[input] = this.inputs[input].value.toUpperCase();
+            params[input] = this.inputs[input].value.toUpperCase().replaceAll(/[\s-()]/g, '');
         }
 
         const objFilter = new Filter(params);

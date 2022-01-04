@@ -4,7 +4,7 @@ import dateFormat from "dateformat";
 export default class Order {
     constructor({ name, phone, date, description, price, payment, ok, id = undefined }) {
         this.name = name;
-        this.phone = phone;
+        this.phone = phone.replaceAll(/[^0-9]/g, '');
 
         this.date = date;
         this.description = description;
@@ -49,6 +49,4 @@ export default class Order {
                             day == 5 ? "Sex, " :
                                 day == 6 ? "Sab, " : "Err, ") + dateFormat(this.date, 'dd/mm/yyyy');
     }
-
-
 }

@@ -29,3 +29,7 @@ document.getElementById('add').onclick = (e) => {
     controller.openEditor();
 };
 
+document.querySelectorAll('.h_form_filters_cont_label_ipt')
+    .forEach(input => {
+        input.oninput = applyFilter;
+    });
