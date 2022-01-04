@@ -8,7 +8,6 @@ export default class Filter {
     }
 
     eval(order) {
-        console.log(this);
         for (const prop in this) {
             if (prop == 'date') {
                 return new Date(order.date) >= new Date(this[prop]);

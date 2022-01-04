@@ -1,10 +1,9 @@
-import md5 from "md5";
 import dateFormat from "dateformat";
 
 export default class Order {
     constructor({ name, phone, date, description, price, payment, ok, id = undefined }) {
         this.name = name;
-        this.phone = phone.replaceAll(/[^0-9]/g, '');
+        this.phone = String(phone).replaceAll(/[^0-9]/g, '');
 
         this.date = date;
         this.description = description;
@@ -35,7 +34,7 @@ export default class Order {
 
     init() {
         if (this.id == undefined)
-            this.id = md5(JSON.stringify(this));
+            this.id = new Date().getTime();
     }
 
     dateForView() {
