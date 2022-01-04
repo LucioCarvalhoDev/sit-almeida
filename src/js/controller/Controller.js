@@ -97,11 +97,11 @@ export default class Controller {
         const params = {};
 
         for (const input in this.inputs) {
-            if (input == "date") {
-                params[input] = this.inputs[input].value;
+            if (input == "phone") {
+                params[input] = this.inputs[input].value.toUpperCase().replaceAll(/[\s-()]/g, '');
                 continue;
             }
-            params[input] = this.inputs[input].value.toUpperCase().replaceAll(/[\s-()]/g, '');
+            params[input] = this.inputs[input].value;
         }
 
         const objFilter = new Filter(params);
