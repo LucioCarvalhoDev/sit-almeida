@@ -1,6 +1,6 @@
 import { stringify, parse } from "yaml";
 import Dao from "../dao/Dao.js";
-import Filter from "../model/Filter.js";
+import Filter from "../helper/Filter.js";
 import Order from "../model/Order.js";
 import TableView from "../view/TableView.js";
 import ModalController from "./ModalController.js";
