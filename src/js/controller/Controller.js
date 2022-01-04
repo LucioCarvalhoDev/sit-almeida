@@ -165,10 +165,12 @@ export default class Controller {
         editorPromise
             .then(data => {
                 for (let property in data) {
+                    if (property == 'ok') {
+                        currentOrder[property] = data[property];
+                        continue;
+                    }
                     currentOrder[property] = data[property];
                 }
-                // console.log(oldOrder);
-                // console.log(currentOrder);
                 this.updateOrder(currentOrder);
             });
     }

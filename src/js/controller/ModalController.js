@@ -51,22 +51,23 @@ export default class ModalController {
             saveBtn.addEventListener('mousedown', (e) => {
                 e.preventDefault();
 
-                this._overlay.click();
 
                 const newData = {};
                 inputs.forEach(ipt => {
                     const propertyName = ipt.dataset.editorField;
-
-                    switch (ipt.propertyName) {
+                    switch (propertyName) {
                         case 'ok':
                             newData[propertyName] = ipt.checked;
+                            break;
                         case 'date':
                             newData[propertyName] = ipt.value;
+                            break;
                         default:
                             newData[propertyName] = ipt.value;
                     }
                 });
 
+                this._overlay.click();
                 resolve(newData);
 
             });
